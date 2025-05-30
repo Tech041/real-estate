@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useMatch } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Navbar from "./components/Navbar";
 import Contact from "./pages/contact/Contact";
@@ -9,9 +9,10 @@ import Auth from "./pages/auth/Auth";
 import Footer from "./components/Footer";
 
 const App = () => {
+  const isAuthPage = useMatch("/auth");
   return (
     <div className="">
-      <Navbar />
+      {!isAuthPage && <Navbar />}{" "}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -19,7 +20,7 @@ const App = () => {
         <Route path="/properties" element={<Properties />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
-      <Footer />
+      {!isAuthPage && <Footer />}{" "}
     </div>
   );
 };
