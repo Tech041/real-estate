@@ -7,11 +7,13 @@ import Collections from "../../components/Collections";
 import FrequentQuestions from "../../components/FrequentQuestions";
 import ClientReviews from "../../components/ClientReviews";
 import CalltoAction from "../../components/CalltoAction";
+import Whatsapp from "../../components/Whatsapp";
 
 const Home = () => {
   return (
-    <main className="">
+    <main className="relative  ">
       <Hero />
+      <Whatsapp />
       <Coverage />
       <Achievement />
       <Map />
@@ -19,7 +21,6 @@ const Home = () => {
       <FrequentQuestions />
       <ClientReviews />
       <CalltoAction />
-      
     </main>
   );
 };

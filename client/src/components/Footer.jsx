@@ -6,10 +6,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer
-      className=" bg-gradient-to-tr from-black to-gray-600 text-white h-full"
-      
-    >
+    <footer className=" bg-gradient-to-tr from-black to-gray-600 text-white h-full">
       <div className="container">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center  gap-14  text-sm">
           <div className="">
@@ -63,9 +60,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="">
-            <p className="text-xl font-medium mb-5 text-white ">
-              Contact Us
-            </p>
+            <p className="text-xl font-medium mb-5 text-white ">Contact Us</p>
             <div className="">
               <div className="flex  items-center w-full ">
                 <div className="flex items-center justify-between gap-3  ">
@@ -91,7 +86,7 @@ const Footer = () => {
                       </span>
                     </a>
                   </div>
-                  <div className="p-2 rounded-full bg-green-600">
+                  {/* <div className="p-2 rounded-full bg-green-600">
                     <a
                       href="https://wa.link/cfop30"
                       target="_blank"
@@ -101,7 +96,7 @@ const Footer = () => {
                         <FaWhatsapp size={20} color="white" />
                       </span>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="pt-3">
