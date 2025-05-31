@@ -6,15 +6,18 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
+import useLogout from "../hooks/useLogout";
+
 
 const mobileStyle = "cursor-pointer text-white hover:text-gray-400 w-[100px]";
 const liStyles = "hover:cursor-pointer hover:text-black/70  px-2 ";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { token, isAuth, } = useContext(AppContext);
+  const Logout = useLogout();
 
-  const { token, isAuth } = useContext(AppContext);
 
   return (
     <header className=" fixed py-2 h-auto w-full bg-gradient-to-bl from-orange-50 to-white z-40">
@@ -58,7 +61,7 @@ const Navbar = () => {
                   </Link>
                 ) : (
                   <li className={liStyles}>
-                    <Link to="/login">Admin</Link>
+                    <Link to="/admin">Admin</Link>
                   </li>
                 )}
               </ul>
@@ -67,9 +70,9 @@ const Navbar = () => {
               {isAuth ? (
                 <Button
                   children={
-                    <Link to={"/auth"} className="">
+                    <span onClick={Logout} className="">
                       Logout
-                    </Link>
+                    </span>
                   }
                   buttonClass={
                     " bg-black hover:opacity-80 text-white px-3 md:px-4 py-1 md:py-2  flex justify-center items-center gap-2 rounded-md"
@@ -79,7 +82,7 @@ const Navbar = () => {
               ) : (
                 <Button
                   children={
-                    <Link to={"/auth"} className="">
+                    <Link to={"/login"} className="">
                       Login
                     </Link>
                   }
@@ -113,35 +116,35 @@ const Navbar = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <a href="#home" className="">
+                <Link to={"/"} className="">
                   Home
-                </a>
+                </Link>
               </li>
               <li
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <a href="#about" className="">
+                <Link to={"/about"} className="">
                   About
-                </a>
+                </Link>
               </li>
 
               <li
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <a href="#properties" className="">
+                <Link to={"/properties"} className="">
                   Properties
-                </a>
+                </Link>
               </li>
 
               <li
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <a href="#contact" className="">
+                <Link to={"/contact"} className="">
                   Contact
-                </a>
+                </Link>
               </li>
               <li
                 onClick={() => setIsOpen((prev) => !prev)}
@@ -152,14 +155,14 @@ const Navbar = () => {
                     Messages
                   </Link>
                 ) : (
-                  <Link to="/login">Admin</Link>
+                  <Link to="/admin">Admin</Link>
                 )}{" "}
               </li>
             </ul>
             {/* social links */}
             <div className="flex items-center justify-center gap-5 pt-10 ">
               <div className=" bg-blue-700 p-2 rounded-full">
-                <a
+                <Link
                   href="https://www.facebook.com/mandela.nelson.18062"
                   target="_blank"
                   className=""
@@ -167,10 +170,10 @@ const Navbar = () => {
                   <span className="">
                     <FaFacebookF size={20} color="white" />
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="bg-blue-700 p-2 rounded-full">
-                <a
+                <Link
                   href="https://www.linkedin.com/in/nel21"
                   target="_blank"
                   className=""
@@ -178,14 +181,18 @@ const Navbar = () => {
                   <span className="">
                     <FaLinkedinIn size={20} color="white" />
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="bg-green-700 p-2 rounded-full">
-                <a href="https://wa.link/cfop30" target="_blank" className="">
+                <Link
+                  href="https://wa.link/cfop30"
+                  target="_blank"
+                  className=""
+                >
                   <span className="">
                     <FaWhatsapp size={20} color="white" />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </nav>

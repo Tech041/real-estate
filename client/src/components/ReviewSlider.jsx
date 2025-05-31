@@ -4,67 +4,67 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 const slides = [
   {
     id: 1,
-    img: "/img1.jpg",
+    img: "/man1.jpg",
     review:
       "Reliable, transparent, and efficient.!",
-    name: "Jane Doe",
+    name: "James",
   },
   {
     id: 2,
-    img: "/img2.jpg",
+    img: "/man2.jpg",
     review:
       "Amazing selection of properties! ",
-    name: "John Smith",
+    name: " Smith",
   },
   {
     id: 3,
-    img: "/img3.jpg",
+    img: "/man3.jpg",
     review:
       "Smooth transaction and professional guidance.",
-    name: "Michael Johnson",
+    name: "Michael ",
   },
   {
     id: 4,
-    img: "/img4.jpg",
+    img: "/man4.jpg",
     review: "Trustworthy real estate business.",
-    name: "Emily Brown",
+    name: "John",
   },
   {
     id: 5,
-    img: "/img4.jpg",
+    img: "/man5.jpg",
     review:
       "Exceptional service! Found my dream home effortlessly. ",
-    name: "Emily Brown",
+    name: "Brown",
   },
   {
     id: 6,
-    img: "/img4.jpg",
+    img: "/man6.jpg",
     review: "Friendly agents who go above and beyond. ",
-    name: "Emily Brown",
+    name: "Aisha",
   },
   {
     id: 7,
-    img: "/img4.jpg",
+    img: "/man7.jpg",
     review: "Their expertise is perfect !",
-    name: "Emily Brown",
+    name: "Mary",
   },
   {
     id: 8,
-    img: "/img4.jpg",
+    img: "/man8.jpg",
     review: "Affordable and quality properties.",
-    name: "Emily Brown",
+    name: "Cynthia",
   },
   {
     id: 9,
-    img: "/img4.jpg",
+    img: "/man9.jpg",
     review: "Quick and hassle-free home-buying process. ",
-    name: "Emily Brown",
+    name: "Favour",
   },
   {
     id: 10,
-    img: "/img4.jpg",
+    img: "/man10.jpg",
     review: "Top-notch customer service. ",
-    name: "Emily Brown",
+    name: "Jennifer",
   },
 ];
 

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa6";
 
-import { FaWhatsapp } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
 const Footer = () => {
@@ -11,10 +10,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center  gap-14  text-sm">
           <div className="">
             <div className="">
-              <p className="text-xl font-medium mb-5 pt-5 text-white ">
+              <p className="text-xl font-medium mb-5 pt-5 text-orange-700 ">
                 LuxLife
               </p>
-              <div className="w-[50px] h-[50px] rounded-full bg-white flex justify-center items-center ">
+              <div className="w-[50px] h-[50px] rounded-full bg-orange-700 flex justify-center items-center ">
                 <a href="#home" className="">
                   <img
                     src="/logo.png"
@@ -31,35 +30,36 @@ const Footer = () => {
             <p className="text-xl font-medium mb-5 pt-5 text-white ">
               Quick Link
             </p>
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-col md:justify-center md:items-center justify-start items-start gap-1">
               <li className="cursor-pointer py-1">
-                <a href="#about" className="">
+                <Link to={"/"} className="">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="cursor-pointer">
-                <a href="#services" className="">
+                <Link to={"/about"} className="">
                   About
-                </a>
-              </li>
-              <li className="cursor-pointer py-1">
-                <a href="#portfolio" className="">
-                  Properties
-                </a>
+                </Link>
               </li>
               <li className="cursor-pointer">
-                <a href="#testimonials" className="">
+                <Link to={"/admin"} className="">
                   Admin
-                </a>
+                </Link>
               </li>
               <li className="cursor-pointer py-1">
-                <a href="#contact" className="">
+                <Link to={"/properties"} className="">
+                  Properties
+                </Link>
+              </li>
+              
+              <li className="cursor-pointer py-1">
+                <Link to={"/contact"} className="">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
-          <div className="">
+          <div className="mb-3">
             <p className="text-xl font-medium mb-5 text-white ">Contact Us</p>
             <div className="">
               <div className="flex  items-center w-full ">
@@ -99,7 +99,7 @@ const Footer = () => {
                   </div> */}
                 </div>
               </div>
-              <div className="pt-3">
+              {/* <div className="pt-3">
                 <a
                   href="tel:+2348030507512"
                   className="flex items-center gap-3"
@@ -107,13 +107,13 @@ const Footer = () => {
                   <FaPhone size={15} />
                   <span className="">+2348030507512</span>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="">
           <hr className="" />
-          <p className="py-5 text-xs text-center text-white  ">
+          <p className="py-5 text-xs text-center text-orange-500  ">
             Copyright &copy;LuxLife {new Date().getFullYear()} <br />
             <span className="">All rights reserved.</span>
           </p>

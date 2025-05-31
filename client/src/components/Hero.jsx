@@ -1,9 +1,12 @@
-import React from "react";
+
 
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
+
 const Hero = () => {
+ 
+
   return (
     <section className="h-screen w-full bg-[url('/img003.png')] bg-cover pt-20 flex  items-center">
       <div className="container">

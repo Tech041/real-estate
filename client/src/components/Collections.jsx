@@ -6,7 +6,7 @@ import { dummyData } from "../utils/DummyData";
 const Collections = () => {
   const [collections, setCollections] = useState([]);
   useEffect(() => {
-    const sliceData = dummyData.slice(0, 6);
+    const sliceData = dummyData.slice(0, 10);
     setCollections(sliceData);
     console.log("collections are ", dummyData);
   }, []);
