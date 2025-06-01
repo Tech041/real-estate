@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Navbar from "./components/Navbar";
@@ -11,8 +11,11 @@ import PropertyDetails from "./pages/productDetails/PropertyDetails";
 import Post from "./pages/post/Post";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
+import { AppContext } from "./context/AppContext";
 
 const App = () => {
+  const { allListing } = useContext(AppContext);
+
   return (
     <div className="">
       <Navbar />
@@ -20,7 +23,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-        <Route path="/properties" element={<Properties />} />
+        <Route
+          path="/properties"
+          element={<Properties listing={allListing} />}
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />

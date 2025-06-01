@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa6";
-
 import { FaFacebookF } from "react-icons/fa6";
-import { FaPhone } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className=" bg-gradient-to-tr from-black to-gray-600 text-white h-full">
@@ -14,7 +13,7 @@ const Footer = () => {
                 LuxLife
               </p>
               <div className="w-[50px] h-[50px] rounded-full bg-orange-700 flex justify-center items-center ">
-                <a href="#home" className="">
+                <Link onClick={() => scrollTo(0, 0)} className="">
                   <img
                     src="/logo.png"
                     alt=""
@@ -22,7 +21,7 @@ const Footer = () => {
                     height={50}
                     className="w-[30px] h-[30px] rounded-full"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -30,30 +29,30 @@ const Footer = () => {
             <p className="text-xl font-medium mb-5 pt-5 text-white ">
               Quick Link
             </p>
-            <ul className="flex flex-col md:justify-center md:items-center justify-start items-start gap-1">
+            <ul className="flex flex-col md:justify-center md:items-center justify-start items-start gap-1 italic">
               <li className="cursor-pointer py-1">
-                <Link to={"/"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/"} className="">
                   Home
                 </Link>
               </li>
               <li className="cursor-pointer">
-                <Link to={"/about"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/about"} className="">
                   About
                 </Link>
               </li>
-              <li className="cursor-pointer">
-                <Link to={"/admin"} className="">
+              {/* <li className="cursor-pointer">
+                <Link onClick={() => scrollTo(0, 0)} to={"/admin"} className="">
                   Admin
                 </Link>
-              </li>
+              </li> */}
               <li className="cursor-pointer py-1">
-                <Link to={"/properties"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/properties"} className="">
                   Properties
                 </Link>
               </li>
-              
+
               <li className="cursor-pointer py-1">
-                <Link to={"/contact"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/contact"} className="">
                   Contact Us
                 </Link>
               </li>

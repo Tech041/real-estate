@@ -27,7 +27,7 @@ const Contact = () => {
             </p>
             <p className="font-bold text-center">
               <span className="font-semibold text-gray-900">✉️ Email</span>:
-              support@lxlife.org
+              support@luxlife.org
             </p>
             <p className="font-bold text-center">
               <span className="font-semibold text-green-950">📞 Phone</span>:

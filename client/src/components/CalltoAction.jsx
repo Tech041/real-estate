@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ExploreButton from "./ExploreButton";
+import { AppContext } from "../context/AppContext";
+import { Link } from "react-router-dom";
 
 const CalltoAction = () => {
+  const { isAuth } = useContext(AppContext);
+
   return (
     <section className=" flex justify-center items-center w-full  text-black h-[400px]">
       <div className="container">
@@ -13,7 +17,9 @@ const CalltoAction = () => {
           and goals.
         </p>
         <div className="flex justify-center">
-          <ExploreButton text={"Get started"} />
+          <Link onClick={() => scrollTo(0, 0)} to={isAuth ? "/post" : "/login"}>
+            <ExploreButton text={"Get started"} />
+          </Link>{" "}
         </div>
       </div>
     </section>

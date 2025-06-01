@@ -12,7 +12,8 @@ import apiRequest from "../../utils/apiRequest";
 import { AppContext } from "../../context/AppContext";
 
 const Home = () => {
-  const { setIsAuth, setAllListing, allListing } = useContext(AppContext);
+  const { setIsAuth, setAllListing, listing, setListing } =
+    useContext(AppContext);
   const [loading, setLoading] = useState(false);
 
   const isAuthenticated = async () => {
@@ -34,7 +35,8 @@ const Home = () => {
     try {
       const res = await apiRequest.get("/api/listing");
       if (res.data.success) {
-        setAllListing(res.data.listing.slice(0, 6));
+        setAllListing(res.data.listing);
+        setListing(res.data.listing.slice(0, 6));
         setLoading(false);
       } else {
         console.log("Error fetching all listing", res.data.message);
@@ -54,7 +56,7 @@ const Home = () => {
       <Coverage />
       <Achievement />
       <Map />
-      <Collections listing={allListing} isLoading={loading} />
+      <Collections listing={listing} isLoading={loading} />
       <FrequentQuestions />
       <ClientReviews />
       <CalltoAction />

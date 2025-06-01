@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="container">
         <div className=" h-full w-full flex flex-col md:flex-row items-center justify-center  ">
           <div className="capitalize text-3xl lg:4xl font-bold text-white bg-black/50 px-4">
-            <h1 className="text-center ">
+            <h1 className="text-center italic ">
               Welcome to LuxLife, one property at a time.
             </h1>
             <h3 className="text-base text-white text-center py-3">

@@ -6,6 +6,8 @@ export const AppContextProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [allListing, setAllListing] = useState([]);
+  const [listing, setListing] = useState([]);
+  const [search, setSearch] = useState("");
 
   const value = {
     token,
@@ -14,6 +16,10 @@ export const AppContextProvider = ({ children }) => {
     setIsAuth,
     setAllListing,
     allListing,
+    listing,
+    setListing,
+    search,
+    setSearch,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

@@ -1,32 +1,21 @@
-import { useState } from "react";
+import { useContext,  } from "react";
+import { AppContext } from "../context/AppContext";
 
-const SearchForm = ({ onSearch }) => {
-  const [query, setQuery] = useState(onSearch);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearch(query); // Pass search query to parent component
-  };
+const SearchForm = () => {
+  const { setSearch, search } = useContext(AppContext);
+ 
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center gap-2  p-2 rounded-lg shadow-md"
-    >
+    <div className="flex items-center gap-2  p-2 rounded-lg shadow-md">
       <input
         type="text"
-        placeholder="Search by name/location"
+        placeholder="Search name/location"
         className="w-full p-2 outline-none rounded-md "
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
-      <button
-        type="button"
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-      >
-        Search
-      </button>
-    </form>
+     
+    </div>
   );
 };
 

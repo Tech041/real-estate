@@ -14,7 +14,7 @@ const liStyles = "hover:cursor-pointer hover:text-black/70  px-2 ";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { token, isAuth } = useContext(AppContext);
+  const {  isAuth } = useContext(AppContext);
   const Logout = useLogout();
 
   return (
@@ -23,7 +23,11 @@ const Navbar = () => {
         <div className="flex items-center hover:cursor-pointer">
           {/* logo */}
           <div className="flex-1 flex items-center gap-1 ">
-            <Link to={"/"} className="flex  items-center justify-center gap-2">
+            <Link
+              onClick={() => scrollTo(0, 0)}
+              to={"/"}
+              className="flex  items-center justify-center gap-2"
+            >
               <span className=" p-[2px] bg-gradient-to-l from-orange-400 to-blue-600 rounded-full">
                 <img
                   src="/logo.png"
@@ -41,27 +45,35 @@ const Navbar = () => {
             <div className="flex-[3] hidden md:block ">
               <ul className="flex justify-center items-center gap-5 text-black  font-semibold">
                 <li className={liStyles}>
-                  <Link to={"/"}>Home</Link>
+                  <Link onClick={() => scrollTo(0, 0)} to={"/"}>
+                    Home
+                  </Link>
                 </li>
                 <li className={liStyles}>
-                  <Link to={"/about"}>About</Link>
+                  <Link onClick={() => scrollTo(0, 0)} to={"/about"}>
+                    About
+                  </Link>
                 </li>
 
                 <li className={liStyles}>
-                  <Link to={"/properties"}>Properties</Link>
+                  <Link onClick={() => scrollTo(0, 0)} to={"/properties"}>
+                    Properties
+                  </Link>
                 </li>
                 <li className={liStyles}>
-                  <Link to={"contact"}>Contact</Link>
+                  <Link onClick={() => scrollTo(0, 0)} to={"contact"}>
+                    Contact
+                  </Link>
                 </li>
-                {token ? (
-                  <Link to={"/messages"} className="text-red-700">
+                {/* {token ? (
+                  <Link onClick={() => scrollTo(0, 0)} to={"/messages"} className="text-red-700">
                     Messages
                   </Link>
                 ) : (
-                  <li className={liStyles}>
+                  <li onClick={() => scrollTo(0, 0)} className={liStyles}>
                     <Link to="/admin">Admin</Link>
                   </li>
-                )}
+                )} */}
               </ul>
             </div>
             <div className="flex-1 flex  items-center gap-4 justify-end ">
@@ -80,7 +92,11 @@ const Navbar = () => {
               ) : (
                 <Button
                   children={
-                    <Link to={"/login"} className="">
+                    <Link
+                      onClick={() => scrollTo(0, 0)}
+                      to={"/login"}
+                      className=""
+                    >
                       Login
                     </Link>
                   }
@@ -114,7 +130,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <Link to={"/"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/"} className="">
                   Home
                 </Link>
               </li>
@@ -122,7 +138,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <Link to={"/about"} className="">
+                <Link onClick={() => scrollTo(0, 0)} to={"/about"} className="">
                   About
                 </Link>
               </li>
@@ -131,7 +147,11 @@ const Navbar = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <Link to={"/properties"} className="">
+                <Link
+                  onClick={() => scrollTo(0, 0)}
+                  to={"/properties"}
+                  className=""
+                >
                   Properties
                 </Link>
               </li>
@@ -140,27 +160,31 @@ const Navbar = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
-                <Link to={"/contact"} className="">
+                <Link
+                  onClick={() => scrollTo(0, 0)}
+                  to={"/contact"}
+                  className=""
+                >
                   Contact
                 </Link>
               </li>
-              <li
+              {/* <li
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}
               >
                 {token ? (
-                  <Link to={"/messages"} className="text-red-700">
+                  <Link onClick={() => scrollTo(0, 0)} to={"/messages"} className="text-red-700">
                     Messages
                   </Link>
                 ) : (
                   <Link to="/admin">Admin</Link>
                 )}{" "}
-              </li>
+              </li> */}
             </ul>
             {/* social links */}
             <div className="flex items-center justify-center gap-5 pt-10 ">
               <div className=" bg-blue-700 p-2 rounded-full">
-                <Link
+                <a
                   href="https://www.facebook.com/mandela.nelson.18062"
                   target="_blank"
                   className=""
@@ -168,10 +192,10 @@ const Navbar = () => {
                   <span className="">
                     <FaFacebookF size={20} color="white" />
                   </span>
-                </Link>
+                </a>
               </div>
               <div className="bg-blue-700 p-2 rounded-full">
-                <Link
+                <a
                   href="https://www.linkedin.com/in/nel21"
                   target="_blank"
                   className=""
@@ -179,18 +203,14 @@ const Navbar = () => {
                   <span className="">
                     <FaLinkedinIn size={20} color="white" />
                   </span>
-                </Link>
+                </a>
               </div>
               <div className="bg-green-700 p-2 rounded-full">
-                <Link
-                  href="https://wa.link/cfop30"
-                  target="_blank"
-                  className=""
-                >
+                <a href="https://wa.link/cfop30" target="_blank" className="">
                   <span className="">
                     <FaWhatsapp size={20} color="white" />
                   </span>
-                </Link>
+                </a>
               </div>
             </div>
           </nav>

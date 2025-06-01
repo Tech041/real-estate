@@ -3,13 +3,13 @@ import Accordion from "./Accordion";
 const accordionContent = [
   {
     id: 1,
-    title: "What types of properties do you sell ?",
+    title: "What types of properties do you sell?",
     description:
       "We offer a diverse range of properties to suit every need and lifestyle. Whether you're looking for a cozy apartment, a spacious family home, a luxurious villa, or a high-rise condo, I’ve got options for you. Our listings also include commercial properties, investment opportunities, and land for development. No matter your budget or preferences, We can help you find the perfect property to match your vision. Let’s get you started on finding your ideal space!",
   },
   {
     id: 2,
-    title: "How do I know if a property is good investment ?",
+    title: "How do I know if a property is good investment?",
     description:
       "Our dedicated quamtity surveyors are ever ready to assist you achieve that. ",
   },

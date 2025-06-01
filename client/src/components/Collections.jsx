@@ -19,7 +19,7 @@ const Collections = ({ listing, isLoading }) => {
             </p>
           </div>
           <div className="">
-            <Link to={"/properties"}>
+            <Link onClick={() => scrollTo(0, 0)} to={"/properties"}>
               <ExploreButton text={" See All "} />
             </Link>{" "}
           </div>

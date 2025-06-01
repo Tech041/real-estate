@@ -21,7 +21,7 @@ const Map = () => {
               inspire big ideas, proving that you don&apos;t need much room.
             </p>
             <div className=" pt-4 flex justify-center  md:justify-start ">
-              <Link to={isAuth ? "/post" : "/login"}>
+              <Link onClick={() => scrollTo(0, 0)} to={isAuth ? "/post" : "/login"}>
                 <ExploreButton text={"Become our agent"} />
               </Link>{" "}
             </div>

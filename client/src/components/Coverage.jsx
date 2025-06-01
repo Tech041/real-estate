@@ -11,7 +11,7 @@ const Coverage = () => {
     <section className="h-full w-full bg-gradient-to-r from-orange-50 to-white py-5">
       <div className="container">
         <div className="">
-          <h2 className="text-2xl md:text-3xl text-center font-semibold capitalize bg-gradient-to-r from-orange-100 to-white text-black px-4 py-1 ">
+          <h2 className="text-2xl md:text-3xl text-center font-semibold capitalize italic bg-gradient-to-r from-orange-100 to-white text-black px-4 py-1 ">
             We offer you luxurious homes at affordable prices.
           </h2>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mt-5">
@@ -28,16 +28,19 @@ const Coverage = () => {
             {/* right */}
             <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-3">
               <div className="flex-1 shadow-xl py-5  rounded-lg ">
-                <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-600 ">
+                <h3 className="text-center text-xl md:text-2xl font-semibold italic text-gray-600 ">
                   LuxLife is multi-agent platform.
                 </h3>
                 <p className="text-center px-2">
                   Are you a property agent?. This is best platform for you to
                   showcase what you have for sale. All posts must be approved by
-                  admin to ensure compliance before approval.
+                  admin to ensure compliance before listing.
                 </p>
                 <div className="flex justify-center items-center pt-6">
-                  <Link to={isAuth ? "/post" : "/login"}>
+                  <Link
+                    onClick={() => scrollTo(0, 0)}
+                    to={isAuth ? "/post" : "/login"}
+                  >
                     <button className="px-3 py-2 bg-gradient-to-bl from-orange-700 to-orange-400 rounded-lg text-white">
                       Get started
                     </button>
@@ -49,7 +52,9 @@ const Coverage = () => {
                   <img src="/img002.png" alt="" className="mb-2" />
                 </div>
                 <div className="mt-3 flex items-center justify-center  ">
-                  <ExploreButton text={"Explore Properties"} />
+                  <Link onClick={() => scrollTo(0, 0)} to={"/properties"}>
+                    <ExploreButton text={"Explore Properties"} />
+                  </Link>{" "}
                 </div>
               </div>
             </div>
