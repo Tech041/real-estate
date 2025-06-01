@@ -44,3 +44,4 @@ API Endpoints
 
 
 6. npm run dev
+To start the React app
