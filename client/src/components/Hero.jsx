@@ -1,12 +1,7 @@
-
-
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
-
 const Hero = () => {
- 
-
   return (
     <section className="h-screen w-full bg-[url('/img003.png')] bg-cover pt-20 flex  items-center">
       <div className="container">
@@ -25,7 +20,7 @@ const Hero = () => {
           <Button
             children={
               <Link
-                onClick={() => screenTop(0, 0)}
+                onClick={() => scrollTo(0, 0)}
                 to={"/properties"}
                 className=""
               >
