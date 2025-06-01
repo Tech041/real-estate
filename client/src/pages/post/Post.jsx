@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
+import apiRequest from "../../utils/apiRequest";
 
 const Post = () => {
   // STATE FOR STORING IMAGES FOR UPLOAD
@@ -22,34 +23,29 @@ const Post = () => {
     e.preventDefault();
     try {
       const formData = new FormData(formRef.current);
-      // formData.append("title", title);
-      // formData.append("bedroom", bedroom);
-      // formData.append("price", price);
-      // formData.append("bathroom", bathroom);
-      // formData.append("loc", loc);
-      // formData.append("contact", contact);
+
       image1 && formData.append("image1", image1);
       image2 && formData.append("image2", image2);
       image3 && formData.append("image3", image3);
 
-      console.log("Formdata is", [...formData.entries()]);
-      // console.log(title, price, bathroom, bedroom, contact, loc);
-      // console.log(image1, image2, image3);
-      // const response = await axios.post("");
-      // if (response.data.success) {
-      //   toast.success(response.data.message);
-      //   setTitle("");
-      //   setContact("");
-      //   setPrice("");
-      //   setBathroom(0);
-      //   setBedroom(0);
-      //   setLoc("");
-      //   setImage1(false);
-      //   setImage2(false);
-      //   setImage3(false);
-      // } else {
-      //   toast.error(response.data.message);
-      // }
+      const res = await apiRequest.post("/api/create-list", formData);
+      console.log("Createdlist is", res.data);
+
+      if (res.data.success) {
+        toast.success(res.data.message);
+        setTitle("");
+        setContact("");
+        setPrice("");
+        setBathroom("");
+        setBedroom("");
+        setDescription("");
+        setLoc("");
+        setImage1(false);
+        setImage2(false);
+        setImage3(false);
+      } else {
+        toast.error(res.data.message);
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.message);

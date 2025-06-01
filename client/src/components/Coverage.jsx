@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import ExploreButton from "./ExploreButton";
+import { Link } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 const Coverage = () => {
+  const { isAuth } = useContext(AppContext);
+
   return (
     <section className="h-full w-full bg-gradient-to-r from-orange-50 to-white py-5">
       <div className="container">
@@ -33,9 +37,11 @@ const Coverage = () => {
                   admin to ensure compliance before approval.
                 </p>
                 <div className="flex justify-center items-center pt-6">
-                  <button className="px-3 py-2 bg-gradient-to-bl from-orange-700 to-orange-400 rounded-lg text-white">
-                    Get started
-                  </button>
+                  <Link to={isAuth ? "/post" : "/login"}>
+                    <button className="px-3 py-2 bg-gradient-to-bl from-orange-700 to-orange-400 rounded-lg text-white">
+                      Get started
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="flex-1 rounded-lg overflow-hidden shadow-lg py-4">

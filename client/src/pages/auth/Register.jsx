@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../../schema/RegisterSchema";
 import { Link, useNavigate } from "react-router-dom";
 import apiRequest from "../../utils/apiRequest";
 import { toast } from "react-toastify";
+import { AppContext } from "../../context/AppContext";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { setIsAuth } = useContext(AppContext);
+
   // For register form
   const {
     register,
@@ -24,6 +27,7 @@ const Register = () => {
         toast.success(res.data.message);
         reset();
         navigate("/post");
+        setIsAuth(true);
       } else {
         toast.error(res.data.message);
       }

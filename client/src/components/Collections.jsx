@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ExploreButton from "./ExploreButton";
 import CollectionCard from "./CollectionCard";
-import { dummyData } from "../utils/DummyData";
+import Spinner from "./Spinner";
+import { Link } from "react-router-dom";
 
-const Collections = () => {
-  const [collections, setCollections] = useState([]);
-  useEffect(() => {
-    const sliceData = dummyData.slice(0, 10);
-    setCollections(sliceData);
-    console.log("collections are ", dummyData);
-  }, []);
+const Collections = ({ listing, isLoading }) => {
   return (
     <section className=" w-full h-full pb-10 bg-gradient-to-bl from-orange-50 to-white">
       <div className="container">
@@ -24,23 +19,30 @@ const Collections = () => {
             </p>
           </div>
           <div className="">
-            <ExploreButton text={" See All "} />
+            <Link to={"/properties"}>
+              <ExploreButton text={" See All "} />
+            </Link>{" "}
           </div>
         </div>
         {/* colletions */}
-        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
-          {collections?.map((item) => (
-            <CollectionCard
-              key={item.id}
-              img={item.imgUrl[0]}
-              title={item.title}
-              loc={item.loc}
-              price={item.price}
-              bedroom={item.bedroom}
-              bathroom={item.bathroom}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 ">
+            {listing?.map((item) => (
+              <CollectionCard
+                key={item._id}
+                id={item._id}
+                img={item.image[0]}
+                title={item.title}
+                loc={item.loc}
+                price={item.price}
+                bedroom={item.bedroom}
+                bathroom={item.bathroom}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

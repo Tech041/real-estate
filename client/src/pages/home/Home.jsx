@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Hero from "../../components/Hero";
 import Coverage from "../../components/Coverage";
 import Achievement from "../../components/Achievement";
@@ -12,14 +12,13 @@ import apiRequest from "../../utils/apiRequest";
 import { AppContext } from "../../context/AppContext";
 
 const Home = () => {
-  const { setIsAuth } = useContext(AppContext);
-  const isAuthenticated = async () => {
-    console.log("Checking authentication...");
+  const { setIsAuth, setAllListing, allListing } = useContext(AppContext);
+  const [loading, setLoading] = useState(false);
 
+  const isAuthenticated = async () => {
     const res = await apiRequest.get("/api/auth/authenticated");
-    console.log("Response is ", res.data);
+
     if (res.data.success) {
-      console.log("auth res ", res.data.message);
       setIsAuth(true);
     } else {
       setIsAuth(false);
@@ -27,8 +26,27 @@ const Home = () => {
   };
   useEffect(() => {
     isAuthenticated();
-    console.log("Running authentication check...");
   }, []);
+
+  // Fetch listing
+  const fetchAllListing = async () => {
+    setLoading(true);
+    try {
+      const res = await apiRequest.get("/api/listing");
+      if (res.data.success) {
+        setAllListing(res.data.listing.slice(0, 6));
+        setLoading(false);
+      } else {
+        console.log("Error fetching all listing", res.data.message);
+      }
+    } catch (error) {
+      console.log("Error fetching all list", error);
+    }
+  };
+  useEffect(() => {
+    fetchAllListing();
+  }, []);
+
   return (
     <main className="relative  ">
       <Hero />
@@ -36,7 +54,7 @@ const Home = () => {
       <Coverage />
       <Achievement />
       <Map />
-      <Collections />
+      <Collections listing={allListing} isLoading={loading} />
       <FrequentQuestions />
       <ClientReviews />
       <CalltoAction />

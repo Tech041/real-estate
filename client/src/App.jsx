@@ -11,12 +11,10 @@ import PropertyDetails from "./pages/productDetails/PropertyDetails";
 import Post from "./pages/post/Post";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
-import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <div className="">
-      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

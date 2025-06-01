@@ -6,21 +6,19 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import useLogout from "../hooks/useLogout";
-
 
 const mobileStyle = "cursor-pointer text-white hover:text-gray-400 w-[100px]";
 const liStyles = "hover:cursor-pointer hover:text-black/70  px-2 ";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { token, isAuth, } = useContext(AppContext);
+  const { token, isAuth } = useContext(AppContext);
   const Logout = useLogout();
 
-
   return (
-    <header className=" fixed py-2 h-auto w-full bg-gradient-to-bl from-orange-50 to-white z-40">
+    <header className=" fixed pb-2  h-auto w-full bg-gradient-to-bl from-orange-50 to-white z-40">
       <div className="container">
         <div className="flex items-center hover:cursor-pointer">
           {/* logo */}

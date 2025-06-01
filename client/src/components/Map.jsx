@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ExploreButton from "./ExploreButton";
+import { Link } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 const Map = () => {
+  const { isAuth } = useContext(AppContext);
   return (
     <section className="py-8 bg-gray-50">
       <div className="container">
@@ -10,7 +13,7 @@ const Map = () => {
             <img src="/map.png" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 pt-10">
-            <h2 className="text-center md:text-start text-2xl md:text-3xl font-semibold py-2 text-black">
+            <h2 className="text-center md:text-start text-2xl md:text-3xl font-semibold py-2 text-black capitalize italic">
               Discover properties with the best value.
             </h2>
             <p className="text-center md:text-start text-gray-500">
@@ -18,7 +21,9 @@ const Map = () => {
               inspire big ideas, proving that you don&apos;t need much room.
             </p>
             <div className=" pt-4 flex justify-center  md:justify-start ">
-              <ExploreButton text={"Find nearest properties"} />
+              <Link to={isAuth ? "/post" : "/login"}>
+                <ExploreButton text={"Become our agent"} />
+              </Link>{" "}
             </div>
           </div>
         </div>

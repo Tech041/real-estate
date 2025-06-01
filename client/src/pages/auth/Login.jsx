@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../../schema/LoginSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import apiRequest from "../../utils/apiRequest";
 import { toast } from "react-toastify";
+import { AppContext } from "../../context/AppContext";
 const Login = () => {
   const navigate = useNavigate();
+  const { setIsAuth } = useContext(AppContext);
 
   const {
     register,
@@ -22,6 +24,7 @@ const Login = () => {
       toast.success(res.data.message);
       reset();
       navigate("/post");
+      setIsAuth(true);
     } else {
       toast.error(res.data.message);
     }
