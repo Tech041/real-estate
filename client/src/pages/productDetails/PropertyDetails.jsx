@@ -48,6 +48,7 @@ const PropertyDetails = () => {
               bedroom={property && property.bedroom}
               bathroom={property && property.bathroom}
               loc={property && property.loc}
+              contact={property && property.contact}
               price={property && property.price}
               description={property && property.description}
             />

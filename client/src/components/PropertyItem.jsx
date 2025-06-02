@@ -15,6 +15,7 @@ const PropertyItem = ({
   price,
   description,
   id,
+  contact,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
@@ -86,7 +87,7 @@ const PropertyItem = ({
             <p className="font-semibold">
               Contact Agent:
               <span className="pl-4 text-blue-600 font-bold">
-                123-456-678
+                {contact} 123-456-789
               </span>{" "}
             </p>
             <p className="font-semibold">
