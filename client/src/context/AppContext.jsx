@@ -4,7 +4,9 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const [token, setToken] = useState("");
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
   const [allListing, setAllListing] = useState([]);
   const [listing, setListing] = useState([]);
   const [search, setSearch] = useState("");

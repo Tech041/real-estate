@@ -11,7 +11,7 @@ const accordionContent = [
     id: 2,
     title: "How do I know if a property is good investment?",
     description:
-      "Our dedicated quamtity surveyors are ever ready to assist you achieve that. ",
+      "Our dedicated quantity surveyors are ever ready to assist you achieve that. ",
   },
   {
     id: 3,

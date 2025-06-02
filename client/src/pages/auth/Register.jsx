@@ -24,6 +24,8 @@ const Register = () => {
     try {
       const res = await apiRequest.post("/api/auth/register", data);
       if (res.data.success) {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        setIsAuth(res.data);
         toast.success(res.data.message);
         reset();
         navigate("/post");

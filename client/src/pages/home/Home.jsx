@@ -12,22 +12,22 @@ import apiRequest from "../../utils/apiRequest";
 import { AppContext } from "../../context/AppContext";
 
 const Home = () => {
-  const { setIsAuth, setAllListing, listing, setListing } =
+  const {  setAllListing, listing, setListing } =
     useContext(AppContext);
   const [loading, setLoading] = useState(false);
 
-  const isAuthenticated = async () => {
-    const res = await apiRequest.get("/api/auth/authenticated");
+  // const isAuthenticated = async () => {
+  //   const res = await apiRequest.get("/api/auth/authenticated");
 
-    if (res.data.success) {
-      setIsAuth(true);
-    } else {
-      setIsAuth(false);
-    }
-  };
-  useEffect(() => {
-    isAuthenticated();
-  }, []);
+  //   if (res.data.success) {
+  //     setIsAuth(true);
+  //   } else {
+  //     setIsAuth(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   isAuthenticated();
+  // }, []);
 
   // Fetch listing
   const fetchAllListing = async () => {

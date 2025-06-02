@@ -7,8 +7,8 @@ const useLogout = () => {
   const Logout = async () => {
     const res = await apiRequest.post("/api/auth/logout");
     if (res.data.success) {
-      setIsAuth(false);
-      
+      setIsAuth("");
+      localStorage.removeItem("user");
     }
   };
 

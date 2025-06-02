@@ -14,7 +14,7 @@ const liStyles = "hover:cursor-pointer hover:text-black/70  px-2 ";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {  isAuth } = useContext(AppContext);
+  const { isAuth } = useContext(AppContext);
   const Logout = useLogout();
 
   return (

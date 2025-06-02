@@ -1,9 +1,13 @@
-import { useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
 import apiRequest from "../../utils/apiRequest";
+import { AppContext } from "../../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const Post = () => {
+  const { isAuth } = useContext(AppContext);
+  const navigate = useNavigate();
   // STATE FOR STORING IMAGES FOR UPLOAD
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
@@ -51,6 +55,9 @@ const Post = () => {
       toast.error(error.message);
     }
   };
+  useEffect(() => {
+    !isAuth && navigate("/login");
+  }, [isAuth]);
   return (
     <section className="w-full h-full mb-10  pt-20 ">
       <div className="container">

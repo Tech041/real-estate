@@ -33,7 +33,7 @@ export const register = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
     });
     return res.json({
       success: true,
@@ -69,7 +69,7 @@ export const login = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
     });
     const { hashedPassword, ...detailsWithoutPassword } = user.toObject();
 
@@ -83,11 +83,14 @@ export const login = async (req, res) => {
   }
 };
 
-export const isAuthenticated = async (req, res) => {
-  const userId = req.userId;
-  const user = await User.findById(userId);
-  return res.json({ success: true, message: `Welcome back ${user.name}` });
-};
+// export const isAuthenticated = async (req, res) => {
+//   const userId = req.userId;
+//   const user = await User.findById(userId);
+//   // if (!user) {
+//   //   return res.json({ success: false });
+//   // }
+//   return res.json({ success: true, message: `Welcome back ${user.name}` });
+// };
 
 export const logoutUser = async (req, res) => {
   res.clearCookie("token", "");
