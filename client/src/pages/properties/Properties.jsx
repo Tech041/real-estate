@@ -22,13 +22,15 @@ const Properties = ({ listing }) => {
       );
     }
     setListed(propertyCopy);
+    console.log("Listed", listed);
+
     setIsLoading(true);
     // setListed(listing);
     setIsLoading(false);
   };
   useEffect(() => {
     filterProperty();
-  }, [search,listing]);
+  }, [search, listing]);
   return (
     <section className="pt-20 h-full w-full bg-gradient-to-bl from-orange-50 to-yellow-50">
       <div className="container">

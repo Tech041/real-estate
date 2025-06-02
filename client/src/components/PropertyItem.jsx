@@ -86,7 +86,7 @@ const PropertyItem = ({
             <p className="font-semibold">
               Contact Agent:
               <span className="pl-4 text-blue-600 font-bold">
-                09054638294
+                123-456-678
               </span>{" "}
             </p>
             <p className="font-semibold">
