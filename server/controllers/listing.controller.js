@@ -89,6 +89,9 @@ export const editListing = async (req, res) => {
       return res.json({ success: false, message: " Field is empty" });
     }
     const userId = req.userId;
+    if (!userId) {
+      return res.json({ success: false, message: "PLease login" });
+    }
     const listing = await Listing.findById(id);
     if (listing.listedBy.toString() !== userId.toString())
       return res.json({
@@ -121,6 +124,9 @@ export const deleteList = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.userId;
+    if (!userId) {
+      return res.json({ success: false, message: "PLease login" });
+    }
     const listing = await Listing.findById(id);
     if (listing.listedBy.toString() !== userId.toString())
       return res.json({
