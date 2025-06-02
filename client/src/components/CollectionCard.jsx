@@ -30,7 +30,7 @@ const CollectionCard = ({ img, bedroom, bathroom, price, loc, title, id }) => {
         For Sale
       </span>
       <div className="h-[60%]">
-        <img src={img} alt="" className="w-full h-full object-cover"  />
+        <img src={img} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="h-[40%] px-1">
         <div className="flex items-center justify-between gap-4 pt-3 text-sm px-1">
@@ -53,11 +53,8 @@ const CollectionCard = ({ img, bedroom, bathroom, price, loc, title, id }) => {
               <span className="hidden ">bathroom</span>
             </span>
           </div>
-          <div className="flex  items-center bg-green-100 px-2 rounded-lg ">
-            <span className="pr-1">
-              <FaEye size={20} color="black" />
-            </span>
-            <span className="text-xs italic">View</span>
+          <div className="flex  items-center bg-orange-700 text-white py-1 px-2 rounded-lg ">
+            <span className="text-sm italic">Read More</span>
           </div>
         </div>
         <h3 className="text-lg font-semibold text-orange-950 py-2">{title}</h3>
