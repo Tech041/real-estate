@@ -30,7 +30,7 @@ const Navbar = () => {
             >
               <span className=" p-[2px] bg-gradient-to-l from-orange-400 to-blue-600 rounded-full">
                 <img
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt=""
                   className="w-[50px] h-[50px] rounded-full"
                 />

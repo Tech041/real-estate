@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="h-screen w-full bg-[url('/img003.png')] bg-cover pt-20 flex  items-center">
+    <section className="h-screen w-full bg-[url('/img003.webp')] bg-cover pt-20 flex  items-center">
       <div className="container">
         <div className=" h-full w-full flex flex-col md:flex-row items-center justify-center  ">
           <div className="capitalize text-3xl lg:4xl font-bold text-white bg-black/50 px-4">

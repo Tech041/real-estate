@@ -15,7 +15,7 @@ const Footer = () => {
               <div className="w-[50px] h-[50px] rounded-full bg-orange-700 flex justify-center items-center ">
                 <Link onClick={() => scrollTo(0, 0)} className="">
                   <img
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt=""
                     width={50}
                     height={50}

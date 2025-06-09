@@ -19,7 +19,7 @@ const Coverage = () => {
             <div className="flex-1 ">
               <div className="w-full h-full bg-red-600 rounded-xl overflow-hidden">
                 <img
-                  src="/img001.png"
+                  src="/img001.webp"
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -49,7 +49,7 @@ const Coverage = () => {
               </div>
               <div className="flex-1 rounded-lg overflow-hidden shadow-lg py-4">
                 <div className="">
-                  <img src="/img002.png" alt="" className="mb-2" />
+                  <img src="/img002.webp" alt="" className="mb-2" />
                 </div>
                 <div className="mt-3 flex items-center justify-center  ">
                   <Link onClick={() => scrollTo(0, 0)} to={"/properties"}>
