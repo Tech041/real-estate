@@ -3,10 +3,12 @@ import PropertyItem from "../../components/PropertyItem";
 import { useParams } from "react-router-dom";
 import apiRequest from "../../utils/apiRequest";
 import Spinner from "../../components/Spinner";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 const PropertyDetails = () => {
+  const { userId } = useContext(AppContext);
   const { id } = useParams();
-  console.log("Id is ", id);
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -17,8 +19,9 @@ const PropertyDetails = () => {
       const res = await apiRequest.get(`/api/single-listing/${id}`);
       if (res.data.success) {
         setProperty(res.data.singleList);
-        console.log("SINGLE LIST", res.data.singleList);
-        console.log("Property value is ", property);
+        console.log("listedby", res.data.singleList);
+        console.log("userId", userId);
+
         setLoading(false);
       } else {
         console.log("Error singel list all listing", res.data.message);
@@ -51,6 +54,7 @@ const PropertyDetails = () => {
               contact={property && property.contact}
               price={property && property.price}
               description={property && property.description}
+              listedBy={property && property.listedBy}
             />
           )}
         </div>

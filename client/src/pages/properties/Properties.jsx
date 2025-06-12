@@ -5,15 +5,41 @@ import CollectionCard from "../../components/CollectionCard";
 import Spinner from "../../components/Spinner";
 import SearchForm from "../../components/SearchForm";
 import { AppContext } from "../../context/AppContext";
+import apiRequest from "../../utils/apiRequest";
 
-const Properties = ({ listing }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const Properties = () => {
   const [listed, setListed] = useState([]);
   const { search, setSearch } = useContext(AppContext);
   const [showSearch, setShowSearch] = useState(true);
 
+
+
+  const { setAllListing, allListing,  } = useContext(AppContext);
+  const [loading, setLoading] = useState(false);
+
+
+  // Fetch listing
+    const fetchAllListing = async () => {
+      setLoading(true);
+      try {
+        const res = await apiRequest.get("/api/listing");
+        if (res.data.success) {
+          setAllListing(res.data.listing);
+          setLoading(false);
+        } else {
+          console.log("Error fetching all property listing", res.data.message);
+        }
+      } catch (error) {
+        console.log("Error fetching all property list", error);
+      }
+    };
+    useEffect(() => {
+      fetchAllListing();
+    }, []);
+  
+
   const filterProperty = async () => {
-    let propertyCopy = listing.slice();
+    let propertyCopy = allListing.slice();
     if (search) {
       propertyCopy = propertyCopy.filter(
         (item) =>
@@ -22,15 +48,11 @@ const Properties = ({ listing }) => {
       );
     }
     setListed(propertyCopy);
-    console.log("Listed", listed);
-
-    setIsLoading(true);
-    // setListed(listing);
-    setIsLoading(false);
+    
   };
   useEffect(() => {
     filterProperty();
-  }, [search, listing]);
+  }, [search, allListing]);
   return (
     <section className="pt-20 h-full w-full bg-gradient-to-bl from-orange-50 to-yellow-50">
       <div className="container">
@@ -51,7 +73,7 @@ const Properties = ({ listing }) => {
           </span>
         </div>{" "}
         <div className="h-full w-full">
-          {isLoading ? (
+          {loading ? (
             <Spinner />
           ) : (
             <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 ">

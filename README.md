@@ -20,8 +20,7 @@ LuxLife is built using modern web technologies:
 Installation & Setup
 Follow these steps to run LuxLife on your local machine:
 1. Clone the Repository
-git clone https://github.com/real-estate.git
-cd luxlife
+git clone git@github.com:Tech041/real-estate.git
 
 2. Install Dependencies
 3. npm install
@@ -30,18 +29,16 @@ Create a .env file in the root and define
 4. Start the Backend Server
 npm run server
 5. Start the Frontend
+npm run dev
+To start the React app
 
 API Endpoints
 | Method | Endpoint | Description | 
 | POST | /api/auth/register | Register new user | 
-| POST | /api/auth/login | Login user | 
+| POST | /api/auth/login | Login user |
+| POST | /api/auth/logout | Logout user | 
 | GET | /api/listing | Fetch all listings | 
-| POST | /api/listing | Add a new listing | 
-| PUT | /api/edit-listing/:id | Edit a listing | 
+| POST | /api/single-listing | fetch single listing | 
+| POST | /api/edit-listing/:id | Edit a listing | 
 | DELETE | /api/delete-listing/:id | Delete a listing | 
 
-
-
-
-6. npm run dev
-To start the React app

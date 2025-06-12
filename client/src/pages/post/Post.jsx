@@ -33,7 +33,7 @@ const Post = () => {
       image3 && formData.append("image3", image3);
 
       const res = await apiRequest.post("/api/create-list", formData);
-      console.log("Createdlist is", res.data);
+      
 
       if (res.data.success) {
         toast.success(res.data.message);

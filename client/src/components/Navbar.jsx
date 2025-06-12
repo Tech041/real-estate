@@ -61,10 +61,17 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className={liStyles}>
-                  <Link onClick={() => scrollTo(0, 0)} to={"contact"}>
+                  <Link onClick={() => scrollTo(0, 0)} to={"/contact"}>
                     Contact
                   </Link>
                 </li>
+                {isAuth && (
+                  <li className={liStyles}>
+                    <Link onClick={() => scrollTo(0, 0)} to={"/post"}>
+                      Post
+                    </Link>
+                  </li>
+                )}
                 {/* {token ? (
                   <Link onClick={() => scrollTo(0, 0)} to={"/messages"} className="text-red-700">
                     Messages
@@ -168,6 +175,20 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
+              {isAuth && (
+                <li
+                  onClick={() => setIsOpen((prev) => !prev)}
+                  className={mobileStyle}
+                >
+                  <Link
+                    onClick={() => scrollTo(0, 0)}
+                    to={"/post"}
+                    className=""
+                  >
+                    Post
+                  </Link>
+                </li>
+              )}
               {/* <li
                 onClick={() => setIsOpen((prev) => !prev)}
                 className={mobileStyle}

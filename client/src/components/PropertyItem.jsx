@@ -3,6 +3,8 @@ import EditListing from "./EditListing";
 import apiRequest from "../utils/apiRequest";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const PropertyItem = ({
   img1,
@@ -16,8 +18,10 @@ const PropertyItem = ({
   description,
   id,
   contact,
+  listedBy,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const { userId } = useContext(AppContext);
   const navigate = useNavigate();
   const exitEditing = () => {
     setIsEditing(false);
@@ -100,22 +104,24 @@ const PropertyItem = ({
         </div>
       </div>
       {/* actions */}
-      <div className="flex justify-center items-center gap-3 my-4">
-        <button
-          onClick={() => {
-            setIsEditing(true), scrollTo(0, 0);
-          }}
-          className="px-3 py-1 bg-gradient-to-tr from-blue-600 to-blue-300 rounded-lg"
-        >
-          Edit Listing
-        </button>
-        <button
-          onClick={() => handleDeleteList(id)}
-          className="px-3 py-1 bg-gradient-to-tr from-red-600 to-red-300 rounded-lg"
-        >
-          Delete Listing
-        </button>
-      </div>
+      {userId === listedBy && (
+        <div className="flex justify-center items-center gap-3 my-4">
+          <button
+            onClick={() => {
+              setIsEditing(true), scrollTo(0, 0);
+            }}
+            className="px-3 py-1 bg-gradient-to-tr from-blue-600 to-blue-300 rounded-lg"
+          >
+            Edit Listing
+          </button>
+          <button
+            onClick={() => handleDeleteList(id)}
+            className="px-3 py-1 bg-gradient-to-tr from-red-600 to-red-300 rounded-lg"
+          >
+            Delete Listing
+          </button>
+        </div>
+      )}
     </div>
   );
 };

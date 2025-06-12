@@ -12,22 +12,9 @@ import apiRequest from "../../utils/apiRequest";
 import { AppContext } from "../../context/AppContext";
 
 const Home = () => {
-  const {  setAllListing, listing, setListing } =
-    useContext(AppContext);
+  const {  listing, setListing, } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
 
-  // const isAuthenticated = async () => {
-  //   const res = await apiRequest.get("/api/auth/authenticated");
-
-  //   if (res.data.success) {
-  //     setIsAuth(true);
-  //   } else {
-  //     setIsAuth(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   isAuthenticated();
-  // }, []);
 
   // Fetch listing
   const fetchAllListing = async () => {
@@ -35,7 +22,6 @@ const Home = () => {
     try {
       const res = await apiRequest.get("/api/listing");
       if (res.data.success) {
-        setAllListing(res.data.listing);
         setListing(res.data.listing.slice(0, 6));
         setLoading(false);
       } else {
@@ -49,6 +35,7 @@ const Home = () => {
     fetchAllListing();
   }, []);
 
+  
   return (
     <main className="relative  ">
       <Hero />

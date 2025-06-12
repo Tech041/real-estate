@@ -43,6 +43,11 @@ const Collections = ({ listing, isLoading }) => {
             ))}
           </div>
         )}
+        <div className=" w-full  flex justify-center items-center">
+          <Link onClick={() => scrollTo(0, 0)} to={"/properties"}>
+            <ExploreButton text={" See All "} />
+          </Link>{" "}
+        </div>
       </div>
     </section>
   );

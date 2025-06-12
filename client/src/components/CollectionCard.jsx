@@ -2,24 +2,9 @@ import React from "react";
 import { LuBedDouble } from "react-icons/lu";
 import { FaBath } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
-import { FaEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-// import { useQuery } from "@tanstack/react-query";
-// import apiRequest from "../utils/apiRequest";
-// const fetchSingleListing = async (id) => {
-//   const res = await apiRequest.get(`/api/single-listing/${id}`);
-//   return res.data;
-// };
+
 const CollectionCard = ({ img, bedroom, bathroom, price, loc, title, id }) => {
-  // const { isLoading, error, data } = useQuery({
-  //   queryKey: ["single-listing",id],
-  //   queryFn: fetchSingleListing,
-  // });
-  // if (isLoading) return <p>Loading....</p>;
-  // if (error) return <p>Error is nelon occured</p>;
-  // if (data) {
-  //   console.log("single listing", data);
-  // }
   return (
     <Link
       onClick={() => scrollTo(0, 0)}

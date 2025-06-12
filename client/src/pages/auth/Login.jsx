@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { AppContext } from "../../context/AppContext";
 const Login = () => {
   const navigate = useNavigate();
-  const { setIsAuth } = useContext(AppContext);
+  const { setIsAuth, setUserId } = useContext(AppContext);
 
   const {
     register,
@@ -21,7 +21,10 @@ const Login = () => {
   const handleSubmitLoginForm = async (data) => {
     const res = await apiRequest.post("/api/auth/login", data);
     if (res.data.success) {
-      localStorage.setItem("user", JSON.stringify(res.data));
+      sessionStorage.setItem("userId", res.data.detailsWithoutPassword._id);
+      setUserId(res.data.detailsWithoutPassword._id);
+
+      sessionStorage.setItem("user", JSON.stringify(res.data));
       setIsAuth(res.data);
       toast.success(res.data.message);
       reset();

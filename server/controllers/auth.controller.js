@@ -83,14 +83,7 @@ export const login = async (req, res) => {
   }
 };
 
-// export const isAuthenticated = async (req, res) => {
-//   const userId = req.userId;
-//   const user = await User.findById(userId);
-//   // if (!user) {
-//   //   return res.json({ success: false });
-//   // }
-//   return res.json({ success: true, message: `Welcome back ${user.name}` });
-// };
+
 
 export const logoutUser = async (req, res) => {
   res.clearCookie("token", {
