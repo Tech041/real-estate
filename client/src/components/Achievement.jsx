@@ -1,11 +1,5 @@
 import React from "react";
-import { IoArrowForward } from "react-icons/io5";
-import { IoIosCloudOutline } from "react-icons/io";
-import { SiStartrek } from "react-icons/si";
-import { FaMobileScreen } from "react-icons/fa6";
-import { MdSignalWifiStatusbarConnectedNoInternet3 } from "react-icons/md";
-import { BsBuildings } from "react-icons/bs";
-import { SiDigitalocean } from "react-icons/si";
+
 import ServiceCard from "./ServiceCard";
 
 const Achievement = () => {

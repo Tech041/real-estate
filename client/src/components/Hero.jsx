@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Hero = () => {
+  const { isAuth } = useContext(AppContext);
   return (
     <section className="h-screen w-full bg-[url('/img003.webp')] bg-cover pt-20 flex  items-center">
       <div className="container">
@@ -16,7 +19,7 @@ const Hero = () => {
             </h3>
           </div>
         </div>
-        <div className="flex items-center justify-center mt-5">
+        <div className="flex flex-col items-center justify-center gap-4 mt-5">
           <Button
             children={
               <Link
@@ -32,6 +35,23 @@ const Hero = () => {
             }
             // iconClass={"text-white"}
           />
+          {isAuth && (
+            <Button
+              children={
+                <Link
+                  onClick={() => scrollTo(0, 0)}
+                  to={"/my-listing"}
+                  className=""
+                >
+                  My Listings
+                </Link>
+              }
+              buttonClass={
+                " bg-white hover:opacity-80 text-orange-700 px-3 md:px-4 py-1 md:py-2  flex justify-center items-center gap-2 rounded-md"
+              }
+              // iconClass={"text-white"}
+            />
+          )}
         </div>
       </div>
     </section>

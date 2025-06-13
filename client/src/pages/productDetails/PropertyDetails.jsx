@@ -19,9 +19,7 @@ const PropertyDetails = () => {
       const res = await apiRequest.get(`/api/single-listing/${id}`);
       if (res.data.success) {
         setProperty(res.data.singleList);
-        console.log("listedby", res.data.singleList);
-        console.log("userId", userId);
-
+  
         setLoading(false);
       } else {
         console.log("Error singel list all listing", res.data.message);

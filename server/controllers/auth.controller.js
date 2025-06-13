@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 export const register = async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
-    console.log(req.body);
+
     if (!name || !email || !password || !phone) {
       return res.json({ success: false, message: "Incomplete credentials" });
     }
@@ -82,8 +82,6 @@ export const login = async (req, res) => {
     console.log("Error in login controller", error);
   }
 };
-
-
 
 export const logoutUser = async (req, res) => {
   res.clearCookie("token", {

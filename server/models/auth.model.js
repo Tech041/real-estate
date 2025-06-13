@@ -8,6 +8,7 @@ const authSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     hashedPassword: {
       type: String,
