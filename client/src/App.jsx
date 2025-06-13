@@ -12,7 +12,7 @@ import Post from "./pages/post/Post";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import { AppContext } from "./context/AppContext";
-import MyListing from "./pages/MyListing";
+import MyListing from "./pages/myListing/MyListing";
 
 const App = () => {
   const { allListing } = useContext(AppContext);

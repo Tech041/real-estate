@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import apiRequest from "../utils/apiRequest";
+import apiRequest from "../../utils/apiRequest";
 import { useEffect } from "react";
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
-import CollectionCard from "../components/CollectionCard";
-import Spinner from "../components/Spinner";
+import { AppContext } from "../../context/AppContext";
+import CollectionCard from "../../components/CollectionCard";
+import Spinner from "../../components/Spinner";
 import { useNavigate } from "react-router-dom";
 
 const MyListing = () => {
